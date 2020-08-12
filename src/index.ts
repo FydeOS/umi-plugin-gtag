@@ -27,6 +27,7 @@ export default function(api: IApi) {
         window.gtag('js', new Date());
         window.gtag('config', '${id}');
         window.gtag('set', {'user_id': window["${userIdVariable}"]})
+        console.log(window["${userIdVariable}"])
       };
       document.getElementsByTagName('head')[0].appendChild(script);
     })();
