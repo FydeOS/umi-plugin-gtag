@@ -1,5 +1,6 @@
 {
   "name": "umi-plugin-gtag",
+  "version": "1.0.0",
   "main": "lib/index.js",
   "description": "using gtag.js to send data from your site to Google Analytics.",
   "authors": {
