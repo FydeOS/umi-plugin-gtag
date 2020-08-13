@@ -1,19 +1,25 @@
 import React from 'react';
 import styles from './index.css';
 
-window.userId = 6666;
+import { IGetInitialProps } from 'umi';
 
-window.addEventListener('load', function() {
-  console.log('load 111');
-});
-window.onload = function() {
-  console.log('onload');
-};
-window.addEventListener('load', function() {
-  console.log('load 222');
-});
-window.onload = function() {
-  console.log('onload222');
-};
-console.log('umi js');
-export default () => <div className={styles.normal}>Hello Umi!</div>;
+const Home = props => <div className={styles.normal}>{props.data.title}</div>;
+Home.getInitialProps = (async ctx => {
+  const fakedRequest = function() {
+    return new Promise(function(resolve, reject) {
+      setTimeout(() => {
+        resolve(13579);
+      }, 3000);
+    });
+  };
+  const userId = await fakedRequest();
+  return Promise.resolve({
+    gtagData: {
+      user_id: userId,
+    },
+    data: {
+      title: 'Hello World, Hello Umi!',
+    },
+  });
+}) as IGetInitialProps;
+export default Home;
