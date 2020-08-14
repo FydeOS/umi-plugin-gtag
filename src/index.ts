@@ -30,7 +30,6 @@ export default function(api: IApi) {
         window.gtag('js', new Date());
         window.gtag('config', '${id}');
         data && window.gtag('set', data)
-        console.log(data)
       };
       document.getElementsByTagName('head')[0].appendChild(script);
     })();
